@@ -17,13 +17,13 @@ function dispatch()
 	}
 	
 	// コミュニティの取得
-	$commu_handler =& XsnsCommunityHandler::getInstance();
+	$commu_handler = XsnsCommunityHandler::getInstance();
 	$community =& $commu_handler->get($cid);
 	if(!is_object($community) || !$community->checkAuthority()){
 		redirect_header(XOOPS_URL, 2, _NOPERM);
 	}
 	
-	$sess_handler =& XsnsSessionHandler::getInstance();
+	$sess_handler = XsnsSessionHandler::getInstance();
 	$topic = $sess_handler->getVar('topic');
 	
 	if(!is_array($topic) || !isset($topic['name']) || !isset($topic['body'])){
@@ -33,7 +33,7 @@ function dispatch()
 	$r_datetime = date('Y-m-d H:i:s');
 	$r_date = date('Y-m-d');
 	
-	$topic_handler =& XsnsTopicHandler::getInstance();
+	$topic_handler = XsnsTopicHandler::getInstance();
 	$new_topic =& $topic_handler->create();
 	
 	$new_topic->setVars(array(
@@ -45,7 +45,7 @@ function dispatch()
 	));
 	
 	if($tid = $topic_handler->insert($new_topic)){
-		$comment_handler =& XsnsTopicCommentHandler::getInstance();
+		$comment_handler = XsnsTopicCommentHandler::getInstance();
 		$new_comment =& $comment_handler->create();
 		
 		$new_comment->setVars(array(
@@ -61,11 +61,11 @@ function dispatch()
 		if($tcid = $comment_handler->insert($new_comment)){
 			
 			// トピックのコメントに対して画像を添付
-			$image_handler =& XsnsImageHandler::getInstance();
+			$image_handler = XsnsImageHandler::getInstance();
 			$image_ids = $image_handler->uploadImage('t', 2, $tcid);
 			
 			// トピックのコメントに対してファイルを添付
-			$file_handler =& XsnsFileHandler::getInstance();
+			$file_handler = XsnsFileHandler::getInstance();
 			$file_ids = $file_handler->uploadFile('t', 2, $tcid);
 			
 			// イベント通知

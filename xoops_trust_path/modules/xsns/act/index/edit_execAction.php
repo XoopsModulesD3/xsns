@@ -15,7 +15,7 @@ function dispatch()
 	
 	// コミュニティの取得
 	$perm = XSNS_AUTH_XOOPS_ADMIN | XSNS_AUTH_ADMIN;
-	$commu_handler =& XsnsCommunityHandler::getInstance();
+	$commu_handler = XsnsCommunityHandler::getInstance();
 	$community =& $commu_handler->get($cid);
 	if(!is_object($community) || !$community->checkAuthority($perm)){
 		redirect_header(XOOPS_URL, 2, _NOPERM);
@@ -46,12 +46,12 @@ function dispatch()
 	$community->setVar('c_commu_category_id', $cat_id);
 	$community->setVar('public_flag', $public_id);
 	
-	$category_handler =& XsnsCategoryHandler::getInstance();
+	$category_handler = XsnsCategoryHandler::getInstance();
 	
 	if(($cid = $commu_handler->insert($community)) && $category_handler->updateSelector()){
 		
 		// 画像のアップロード
-		$image_handler =& XsnsImageHandler::getInstance();
+		$image_handler = XsnsImageHandler::getInstance();
 		$image_handler->setFormLimit(1);
 		if($image_handler->uploadImageTemp('image')){
 			$image_handler->uploadImage('c', 1, $cid);

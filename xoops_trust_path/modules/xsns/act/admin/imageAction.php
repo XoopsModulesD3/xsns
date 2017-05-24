@@ -23,13 +23,13 @@ function dispatch()
 	$criteria->setSort('c_image_id');
 	$criteria->setOrder('DESC');
 	
-	$image_handler =& XsnsImageHandler::getInstance();
-	$image_obj_list =& $image_handler->getObjects($criteria);
+	$image_handler = XsnsImageHandler::getInstance();
+	$image_obj_list = $image_handler->getObjects($criteria);
 	$image_list = array();
 	
 	$user_handler =& xoops_gethandler('user');
 	
-	$comment_handler =& XsnsTopicCommentHandler::getInstance();
+	$comment_handler = XsnsTopicCommentHandler::getInstance();
 	$comment = array();
 	
 	foreach($image_obj_list as $image_obj){

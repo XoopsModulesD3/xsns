@@ -20,12 +20,12 @@ function dispatch()
 		redirect_header(XOOPS_URL, 2, _NOPERM);
 	}
 	
-	$commu_handler =& XsnsCommunityHandler::getInstance();
-	$topic_handler =& XsnsTopicHandler::getInstance();
-	$comment_handler =& XsnsTopicCommentHandler::getInstance();
-	$sess_handler =& XsnsSessionHandler::getInstance();
-	$image_handler =& XsnsImageHandler::getInstance();
-	$file_handler =& XsnsFileHandler::getInstance();
+	$commu_handler = XsnsCommunityHandler::getInstance();
+	$topic_handler = XsnsTopicHandler::getInstance();
+	$comment_handler = XsnsTopicCommentHandler::getInstance();
+	$sess_handler = XsnsSessionHandler::getInstance();
+	$image_handler = XsnsImageHandler::getInstance();
+	$file_handler = XsnsFileHandler::getInstance();
 	
 	// コミュニティの取得
 	$community =& $commu_handler->get($cid);

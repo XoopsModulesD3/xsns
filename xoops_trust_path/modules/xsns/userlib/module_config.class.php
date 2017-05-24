@@ -55,7 +55,7 @@ class XsnsModuleConfigHandler extends XsnsRootHandler
 	function &getOne($uid)
 	{
 		$ret = NULL;
-		$obj_list =& $this->getObjects(new Criteria('uid', $uid));
+		$obj_list = $this->getObjects(new Criteria('uid', $uid));
 		if(is_array($obj_list) && isset($obj_list[0]) && is_object($obj_list[0])){
 			$ret =& $obj_list[0];
 		}
@@ -70,7 +70,7 @@ class XsnsModuleConfigHandler extends XsnsRootHandler
 		
 		$ret = array();
 		
-		$ts =& XsnsTextSanitizer::sGetInstance();
+		$ts = XsnsTextSanitizer::sGetInstance();
 		$gperm_handler =& xoops_gethandler('groupperm');
 		$module_handler =& xoops_gethandler('module');
 		$groups = is_object($xoopsUser) ? $xoopsUser->getGroups() : XOOPS_GROUP_ANONYMOUS;

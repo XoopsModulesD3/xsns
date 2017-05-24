@@ -3,8 +3,8 @@ class Xsns_Category_add_exec_Action extends Xsns_Admin_Action
 {
 function dispatch()
 {
-	$cat_handler =& XsnsCategoryHandler::getInstance();
-	$cat_parent_handler =& XsnsCategoryParentHandler::getInstance();
+	$cat_handler = XsnsCategoryHandler::getInstance();
+	$cat_parent_handler = XsnsCategoryParentHandler::getInstance();
 	
 	$title = $this->getTextRequest('title');
 	if(empty($title)){

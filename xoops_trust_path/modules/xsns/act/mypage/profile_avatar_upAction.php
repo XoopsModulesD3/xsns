@@ -37,7 +37,7 @@ class Xsns_Profile_avatar_up_Action extends Xsns_Mypage_Action
 			redirect_header(XOOPS_URL, 2, _NOPERM);
 		}
 		
-		$user_handler =& XsnsUserHandler::getInstance();
+		$user_handler = XsnsUserHandler::getInstance();
 		$user =& $user_handler->get($xoopsUser->getVar('uid'));
 		if(!is_object($user)){
 			redirect_header(XOOPS_URL, 2, _NOPERM);
@@ -70,7 +70,7 @@ class Xsns_Profile_avatar_up_Action extends Xsns_Mypage_Action
 		}
 		
 		require_once XSNS_USERLIB_DIR.'/avatar.class.php';
-		$avatar_handler =& XsnsAvatarHandler::getInstance();
+		$avatar_handler = XsnsAvatarHandler::getInstance();
 		$avatar_list_temp =& $avatar_handler->getList('S');
 		
 		foreach($avatar_list_temp as $avatar_temp){

@@ -20,9 +20,9 @@ function dispatch()
 		redirect_header(XOOPS_URL, 2, _NOPERM);
 	}
 	
-	$commu_handler =& XsnsCommunityHandler::getInstance();
-	$topic_handler =& XsnsTopicHandler::getInstance();
-	$comment_handler =& XsnsTopicCommentHandler::getInstance();
+	$commu_handler = XsnsCommunityHandler::getInstance();
+	$topic_handler = XsnsTopicHandler::getInstance();
+	$comment_handler = XsnsTopicCommentHandler::getInstance();
 	
 	// トピックの取得
 	$topic =& $topic_handler->get($tid);
@@ -57,11 +57,11 @@ function dispatch()
 	if($tcid = $comment_handler->insert($new_comment)){
 		
 		// 画像のアップロード
-		$image_handler =& XsnsImageHandler::getInstance();
+		$image_handler = XsnsImageHandler::getInstance();
 		$image_handler->uploadImage('t', 2, $tcid);
 		
 		// ファイルのアップロード
-		$file_handler =& XsnsFileHandler::getInstance();
+		$file_handler = XsnsFileHandler::getInstance();
 		$file_handler->uploadFile('t', 2, $tcid);
 		
 		// イベント通知
@@ -83,7 +83,7 @@ function dispatch()
 		}
 		
 		$xoopsUser->incrementPost();
-		$sess_handler =& XsnsSessionHandler::getInstance();
+		$sess_handler = XsnsSessionHandler::getInstance();
 		$sess_handler->clearVars();
 		
 		redirect_header(XSNS_URL_TOPIC.'&tid='.$tid, 2, _MD_XSNS_TOPIC_ADD_RES_OK);

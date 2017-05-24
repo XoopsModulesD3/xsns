@@ -15,10 +15,10 @@ function dispatch()
 		redirect_header(XOOPS_URL, 2, _NOPERM);
 	}
 	
-	$commu_handler =& XsnsCommunityHandler::getInstance();
-	$topic_handler =& XsnsTopicHandler::getInstance();
-	$comment_handler =& XsnsTopicCommentHandler::getInstance();
-	$user_handler =& XsnsUserHandler::getInstance();
+	$commu_handler = XsnsCommunityHandler::getInstance();
+	$topic_handler = XsnsTopicHandler::getInstance();
+	$comment_handler = XsnsTopicCommentHandler::getInstance();
+	$user_handler = XsnsUserHandler::getInstance();
 	
 	// コメントの取得
 	$comment =& $comment_handler->get($tcid);

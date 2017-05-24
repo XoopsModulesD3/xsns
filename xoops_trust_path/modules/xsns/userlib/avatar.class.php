@@ -47,7 +47,7 @@ class XsnsAvatarHandler extends XoopsAvatarHandler
 	
 	function XsnsAvatarHandler()
 	{
-		$this->db =& Database::getInstance();
+		$this->db = Database::getInstance();
 	}
 	
 	//--------------------------------------------------------------------------
@@ -73,7 +73,7 @@ class XsnsAvatarHandler extends XoopsAvatarHandler
         if (isset($avatar_display)) {
             $criteria->add(new Criteria('avatar_display', intval($avatar_display)));
         }
-        $avatars =& $this->getObjects($criteria, true);
+        $avatars = $this->getObjects($criteria, true);
         $ret = array();
         $ret[] = array(
         	'id' => 0,

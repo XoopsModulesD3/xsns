@@ -21,7 +21,7 @@ function getTextRequest($key, $req_type=XSNS_REQUEST_POST, $sanitize_mode=NULL)
 		return NULL;
 	}
 	
-	$ts =& XsnsTextSanitizer::sGetInstance();
+	$ts = XsnsTextSanitizer::sGetInstance();
 	switch($sanitize_mode){
 		case XOBJ_DTYPE_STRING:
 		case XOBJ_DTYPE_TXTBOX:
@@ -50,7 +50,7 @@ function getRequestVar($key, $req_type=XSNS_REQUEST_POST)
 		$value = isset($_GET[$key]) ? $_GET[$key] : NULL;
 	}
 	elseif($req_type==XSNS_REQUEST_SESSION){
-		$sess_handler =& XsnsSessionHandler::getInstance();
+		$sess_handler = XsnsSessionHandler::getInstance();
 		$value = $sess_handler->getVar($key);
 	}
 	else{

@@ -13,22 +13,22 @@ function dispatch()
 	}
 	
 	// コミュニティの取得
-	$commu_handler =& XsnsCommunityHandler::getInstance();
+	$commu_handler = XsnsCommunityHandler::getInstance();
 	$community =& $commu_handler->get($cid);
 	if(!is_object($community) || !$community->checkAuthority()){
 		redirect_header(XOOPS_URL, 2, _NOPERM);
 	}
 	
 	// 画像・ファイルのキャッシュを削除
-	$image_handler =& XsnsImageHandler::getInstance();
+	$image_handler = XsnsImageHandler::getInstance();
 	$image_handler->deleteImageTemp();
-	$file_handler =& XsnsFileHandler::getInstance();
+	$file_handler = XsnsFileHandler::getInstance();
 	$file_handler->deleteFileTemp();
 	
-	$sess_handler =& XsnsSessionHandler::getInstance();
+	$sess_handler = XsnsSessionHandler::getInstance();
 	$topic_temp = $sess_handler->getVar('topic');
 	$sess_handler->clearVars();
-	$ts =& XsnsTextSanitizer::sGetInstance();
+	$ts = XsnsTextSanitizer::sGetInstance();
 	
 	$default = array(
 		'name' => isset($topic_temp['name']) ? $ts->makeTboxData4PreviewInForm($topic_temp['name']) : '',

@@ -15,7 +15,7 @@ function dispatch()
 	}
 	
 	// 依頼情報の取得
-	$confirm_handler =& XsnsConfirmHandler::getInstance();
+	$confirm_handler = XsnsConfirmHandler::getInstance();
 	$confirm =& $confirm_handler->get($confirm_id);
 	if(!is_object($confirm)){
 		redirect_header(XOOPS_URL, 2, _NOPERM);
@@ -31,7 +31,7 @@ function dispatch()
 	}
 	
 	// ユーザーの取得
-	$user_handler =& XsnsUserHandler::getInstance();
+	$user_handler = XsnsUserHandler::getInstance();
 	$user_from =& $user_handler->get($uid_from);	// 依頼者（他人）
 	$user_to =& $user_handler->get($uid_to);		// 自分
 	if(!is_object($user_from) || !is_object($user_to)){
@@ -40,7 +40,7 @@ function dispatch()
 	
 	if($mode < 3){
 		// コミュニティの取得
-		$commu_handler =& XsnsCommunityHandler::getInstance();
+		$commu_handler = XsnsCommunityHandler::getInstance();
 		$community =& $commu_handler->get($cid);
 		if(!is_object($community) || $community->getAuthority() < XSNS_AUTH_MEMBER){
 			redirect_header(XOOPS_URL, 2, _NOPERM);

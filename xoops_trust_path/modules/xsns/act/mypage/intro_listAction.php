@@ -16,7 +16,7 @@ function dispatch()
 	$uid_to = $this->getIntRequest('uid', XSNS_REQUEST_GET);
 	$uid_from = is_object($xoopsUser) ? $xoopsUser->getVar('uid') : -1;
 	
-	$user_handler =& XsnsUserHandler::getInstance();
+	$user_handler = XsnsUserHandler::getInstance();
 	$user_to =& $user_handler->get($uid_to);
 	if(!is_object($user_to) || $user_to->getVar('level') < 1){
 		redirect_header(XOOPS_URL, 2, _NOPERM);

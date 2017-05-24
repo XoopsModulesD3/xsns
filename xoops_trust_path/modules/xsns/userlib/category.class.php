@@ -106,7 +106,7 @@ class XsnsCategoryHandler extends XsnsRootHandler
 	{
 		$criteria = new CriteriaCompo();
 		$criteria->setSort('sort_order');
-		$cat_parent_obj_list =& $this->handler['cat_parent']->getObjects($criteria);
+		$cat_parent_obj_list = $this->handler['cat_parent']->getObjects($criteria);
 		unset($criteria);
 		
 		foreach($cat_parent_obj_list as $cat_parent_obj){
@@ -114,7 +114,7 @@ class XsnsCategoryHandler extends XsnsRootHandler
 			
 			$criteria = new Criteria('c_commu_category_parent_id', $pid);
 			$criteria->setSort('sort_order');
-			$cat_obj_list =& $this->getObjects($criteria);
+			$cat_obj_list = $this->getObjects($criteria);
 			
 			$count = 0;
 			$child = "";

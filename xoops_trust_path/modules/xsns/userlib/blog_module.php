@@ -103,7 +103,7 @@ class XsnsBlogModuleManager
 	
 	function &getMyBlogList($uid, $limit, $start, &$blog_count)
 	{
-		$ts =& XsnsTextSanitizer::sGetInstance();
+		$ts = XsnsTextSanitizer::sGetInstance();
 		$ret = array();
 		$blog_module =& $this->getModule();
 		
@@ -117,7 +117,7 @@ class XsnsBlogModuleManager
 		$blog_list_temp = $order = array();
 		$blog_count = 0;
 		
-		$user_handler =& XsnsUserHandler::getInstance();
+		$user_handler = XsnsUserHandler::getInstance();
 		$user =& $user_handler->get($uid);
 		if(!is_object($user)){
 			return $ret;
@@ -168,7 +168,7 @@ class XsnsBlogModuleManager
 	
 	function &getFriendBlogList($uid, $limit, $start, &$blog_count)
 	{
-		$ts =& XsnsTextSanitizer::sGetInstance();
+		$ts = XsnsTextSanitizer::sGetInstance();
 		$ret = array();
 		$blog_module =& $this->getModule();
 		
@@ -179,7 +179,7 @@ class XsnsBlogModuleManager
 		$user_blog_url = $this->getUserBlogUrl();
 		$module_url = XOOPS_URL.'/modules/'.$this->getModuleDirName();
 		
-		$user_handler =& XsnsUserHandler::getInstance();
+		$user_handler = XsnsUserHandler::getInstance();
 		$user =& $user_handler->get($uid);
 		if(!is_object($user)){
 			return $ret;

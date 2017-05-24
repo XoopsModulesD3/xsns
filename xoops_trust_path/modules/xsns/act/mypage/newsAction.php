@@ -13,7 +13,7 @@ function dispatch()
 	if(!isset($uid)){
 		$uid = $own_uid;
 	}
-	$user_handler =& XsnsUserHandler::getInstance();
+	$user_handler = XsnsUserHandler::getInstance();
 	$user =& $user_handler->get($uid);
 	if(!is_object($user)){
 		redirect_header(XOOPS_URL, 2, _NOPERM);

@@ -18,7 +18,7 @@ function dispatch()
 	
 	// コミュニティの取得
 	$perm = XSNS_AUTH_NON_MEMBER;
-	$commu_handler =& XsnsCommunityHandler::getInstance();
+	$commu_handler = XsnsCommunityHandler::getInstance();
 	$community =& $commu_handler->get($cid);
 	if(!is_object($community) || !$community->checkAuthority($perm)){
 		redirect_header(XOOPS_URL, 2, _NOPERM);
@@ -34,7 +34,7 @@ function dispatch()
 		
 		// 依頼送信済みかどうかの確認
 		$uid_admin = $community->getVar('uid_admin');
-		$confirm_handler =& XsnsConfirmHandler::getInstance();
+		$confirm_handler = XsnsConfirmHandler::getInstance();
 		if($confirm_handler->getOne($cid, $own_uid, $uid_admin, 0)){
 			redirect_header($redirect_url, 2, _MD_XSNS_INDEX_JOIN_REQ_NG_ALREADY);
 		}
@@ -58,7 +58,7 @@ function dispatch()
 	else{
 		// 誰でも参加可能なコミュニティ
 		
-		$c_member_handler =& XsnsMemberHandler::getInstance();
+		$c_member_handler = XsnsMemberHandler::getInstance();
 		$new_member =& $c_member_handler->create();
 		$new_member->setVars(array(
 			'uid' => $own_uid,

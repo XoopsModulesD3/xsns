@@ -20,8 +20,8 @@ function dispatch()
 	$this->context->setAttribute('token_tag', $token_tag);
 
 	
-	$commu_handler =& XsnsCommunityHandler::getInstance();
-	$topic_handler =& XsnsTopicHandler::getInstance();
+	$commu_handler = XsnsCommunityHandler::getInstance();
+	$topic_handler = XsnsTopicHandler::getInstance();
 	
 	// トピックの取得
 	$topic =& $topic_handler->get($tid);
@@ -52,17 +52,17 @@ function dispatch()
 		redirect_header(XSNS_URL_TOPIC.'&tid='.$tid, 2, _MD_XSNS_TOPIC_RES_BODY_NG);
 	}
 	
-	$comment_handler =& XsnsTopicCommentHandler::getInstance();
+	$comment_handler = XsnsTopicCommentHandler::getInstance();
 	$new_comment =& $comment_handler->create();
 	$new_comment->setVar('body', $body);
 	
 	$commu_vars = array('id' => $cid, 'name' => $community->getVar('name'));
 	
-	$sess_handler =& XsnsSessionHandler::getInstance();
+	$sess_handler = XsnsSessionHandler::getInstance();
 	$sess_handler->setVar('comment_body', $body);
 	
-	$image_handler =& XsnsImageHandler::getInstance();
-	$file_handler =& XsnsFileHandler::getInstance();
+	$image_handler = XsnsImageHandler::getInstance();
+	$file_handler = XsnsFileHandler::getInstance();
 	
 	$topic_vars = array(
 		'id' => $tid,

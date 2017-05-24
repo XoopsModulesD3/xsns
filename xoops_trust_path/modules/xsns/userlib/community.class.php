@@ -419,9 +419,9 @@ class XsnsCommunityHandler extends XsnsRootHandler
 		$obj_list = array();
 		$cids = array();
 		$cat_ids = array();
-		$image_handler =& XsnsImageHandler::getInstance();
+		$image_handler = XsnsImageHandler::getInstance();
 		$image_handler->setFormLimit(1);
-		$category_handler =& XsnsCategoryHandler::getInstance();
+		$category_handler = XsnsCategoryHandler::getInstance();
 		
 		while ($row = $this->db->fetchArray($result)) {
 			$obj = new $this->obj_class();
@@ -464,7 +464,7 @@ class XsnsCommunityHandler extends XsnsRootHandler
 	
 	function checkParams($cid, $name, $info, $cat_id, $public_id)
 	{
-		$ts =& XsnsTextSanitizer::sGetInstance();
+		$ts = XsnsTextSanitizer::sGetInstance();
 		$name = $ts->stripSlashesGPC($name);
 		
 		$this->errors = array();

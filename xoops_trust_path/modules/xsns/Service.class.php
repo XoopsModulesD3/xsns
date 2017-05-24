@@ -38,7 +38,7 @@ class Xsns_Service_Base extends XCube_Service
 	{
 		if($uid_from > 0 && $uid_to > 0 && $uid_from != $uid_to){
 			require_once dirname(__FILE__).'/userlib/friend.class.php';
-			$friend_handler =& XsnsFriendHandler::getInstance();
+			$friend_handler = XsnsFriendHandler::getInstance();
 			$friend_obj =& $friend_handler->getOne($uid_from, $uid_to);
 			return is_object($friend_obj) ? 1 : 0;
 		}

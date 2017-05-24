@@ -55,7 +55,7 @@ class XsnsFriendHandler extends XsnsRootHandler
 		$criteria = new CriteriaCompo(new Criteria('f.uid_from', $uid_from));
 		$criteria->add(new Criteria('f.uid_to', $uid_to));
 		
-		$obj_list =& $this->getObjects($criteria);
+		$obj_list = $this->getObjects($criteria);
 		if(is_array($obj_list) && count($obj_list)==1){
 			$ret =& $obj_list[0];
 		}

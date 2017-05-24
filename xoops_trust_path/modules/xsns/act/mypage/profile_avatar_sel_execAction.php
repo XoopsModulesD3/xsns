@@ -62,7 +62,7 @@ function dispatch()
 	if($avatar_id > 0){
 		$criteria = new CriteriaCompo(new Criteria('a.avatar_id', $avatar_id));
 		$criteria->add(new Criteria('a.avatar_type', 'S'));
-		$avatars =& $avt_handler->getObjects($criteria);
+		$avatars = $avt_handler->getObjects($criteria);
 		if (!is_array($avatars) || !is_object($avatars[0])) {
 			redirect_header(XSNS_URL_MYPAGE_PROFILE, 3, _US_NOEDITRIGHT);
 		}
@@ -85,10 +85,10 @@ function dispatch()
 			require_once XOOPS_ROOT_PATH.'/footer.php';
 		}
 		if ($oldavatar && $oldavatar != 'blank.gif' && preg_match("/^cavt/", strtolower($oldavatar))) {
-			(method_exists('MyTextSanitizer', 'sGetInstance') and $ts =& MyTextSanitizer::sGetInstance()) || $ts =& MyTextSanitizer::getInstance();
+			(method_exists('MyTextSanitizer', 'sGetInstance') and $ts = MyTextSanitizer::sGetInstance()) || $ts = MyTextSanitizer::getInstance();
 			$criteria = new CriteriaCompo(new Criteria('avatar_file', $ts->addSlashes($oldavatar)));
 			$criteria->add(new Criteria('avatar_type', 'C'));
-			$avatars =& $avt_handler->getObjects($criteria);
+			$avatars = $avt_handler->getObjects($criteria);
 			if (is_object($avatars[0])) {
 				$avt_handler->delete($avatars[0]);
 			}

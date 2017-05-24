@@ -18,11 +18,11 @@ function checkAuthority($image_id, $file_id)
 	$own_uid = $xoopsUser->getVar('uid');
 	
 	if($image_id > 0){
-		$image_handler =& XsnsImageHandler::getInstance();
+		$image_handler = XsnsImageHandler::getInstance();
 		$data =& $image_handler->get($image_id);
 	}
 	elseif($file_id > 0){
-		$file_handler =& XsnsFileHandler::getInstance();
+		$file_handler = XsnsFileHandler::getInstance();
 		$data =& $file_handler->get($file_id);
 	}
 	else{
@@ -36,8 +36,8 @@ function checkAuthority($image_id, $file_id)
 	$target = $data->getVar('target');
 	$target_id = $data->getVar('target_id');
 	
-	$commu_handler =& XsnsCommunityHandler::getInstance();
-	$c_member_handler =& XsnsMemberHandler::getInstance();
+	$commu_handler = XsnsCommunityHandler::getInstance();
+	$c_member_handler = XsnsMemberHandler::getInstance();
 	
 	if($target == 1){
 		// for community
@@ -57,14 +57,14 @@ function checkAuthority($image_id, $file_id)
 	}
 	elseif($target == 2){
 		// for topic/comment
-		$comment_handler =& XsnsTopicCommentHandler::getInstance();
+		$comment_handler = XsnsTopicCommentHandler::getInstance();
 		$comment =& $comment_handler->get($target_id);
 		if(!is_object($comment)){
 			return false;
 		}
 		
 		$tid = $comment->getVar('c_commu_topic_id');
-		$topic_handler =& XsnsTopicHandler::getInstance();
+		$topic_handler = XsnsTopicHandler::getInstance();
 		$topic =& $topic_handler->get($tid);
 		if(!is_object($topic)){
 			return false;

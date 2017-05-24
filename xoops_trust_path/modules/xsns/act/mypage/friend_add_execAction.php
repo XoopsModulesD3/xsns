@@ -17,7 +17,7 @@ function dispatch()
 		redirect_header(XOOPS_URL, 2, _NOPERM);
 	}
 	
-	$user_handler =& XsnsUserHandler::getInstance();
+	$user_handler = XsnsUserHandler::getInstance();
 	$own_user =& $user_handler->get($own_uid);
 	$target_user =& $user_handler->get($uid);
 	if(!is_object($own_user) || !is_object($target_user) || $own_user->isFriend($uid)){
@@ -26,7 +26,7 @@ function dispatch()
 	
 	$message = $this->getTextRequest('message');
 	
-	$confirm_handler =& XsnsConfirmHandler::getInstance();
+	$confirm_handler = XsnsConfirmHandler::getInstance();
 	$confirm =& $confirm_handler->getOne(0, $own_uid, $uid, 3);
 	if(!is_object($confirm)){
 		$confirm =& $confirm_handler->create();

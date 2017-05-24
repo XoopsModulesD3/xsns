@@ -11,7 +11,7 @@ function dispatch()
 		return "default";
 	}
 	
-	$log_handler =& XsnsAccessLogHandler::getInstance();
+	$log_handler = XsnsAccessLogHandler::getInstance();
 	
 	$limit = 50;
 	$start = $this->getIntRequest('s', XSNS_REQUEST_GET);

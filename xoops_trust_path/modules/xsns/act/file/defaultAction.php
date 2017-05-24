@@ -33,7 +33,7 @@ function getDeleteImageConfirmFormData($image_id)
 {
 	global $xoopsModuleConfig;
 	
-	$image_handler =& XsnsImageHandler::getInstance();
+	$image_handler = XsnsImageHandler::getInstance();
 	$image =& $image_handler->get($image_id);
 	if(!is_object($image)){
 		return false;
@@ -68,7 +68,7 @@ function getDeleteFileConfirmFormData($file_id)
 {
 	global $xoopsModuleConfig;
 	
-	$file_handler =& XsnsFileHandler::getInstance();
+	$file_handler = XsnsFileHandler::getInstance();
 	$file =& $file_handler->get($file_id);
 	if(!is_object($file)){
 		return false;

@@ -74,7 +74,7 @@ class XsnsMemberHandler extends XsnsRootHandler
 		$ret = false;
 		$criteria = new CriteriaCompo(new Criteria('cm.c_commu_id', $cid));
 		$criteria->add(new Criteria('cm.uid', $uid));
-		$users =& $this->getObjects($criteria);
+		$users = $this->getObjects($criteria);
 		if(is_array($users) && isset($users[0]) && is_object($users[0])){
 			$ret =& $users[0];
 		}

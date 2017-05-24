@@ -80,7 +80,7 @@ function dispatch()
 				else {
 					$oldavatar = $xoopsUser->getVar('user_avatar');
 					if (!empty($oldavatar) && $oldavatar != 'blank.gif' && !preg_match("/^savt/", strtolower($oldavatar))) {
-						$avatars =& $avt_handler->getObjects(new Criteria('avatar_file', $oldavatar));
+						$avatars = $avt_handler->getObjects(new Criteria('avatar_file', $oldavatar));
 						$avt_handler->delete($avatars[0]);
 						$oldavatar_path = str_replace("\\", "/", realpath(XOOPS_UPLOAD_PATH.'/'.$oldavatar));
 						if (0 === strpos($oldavatar_path, XOOPS_UPLOAD_PATH) && is_file($oldavatar_path)) {

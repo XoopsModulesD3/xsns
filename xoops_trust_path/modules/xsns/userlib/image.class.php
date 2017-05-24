@@ -69,7 +69,7 @@ class XsnsImageHandler extends XsnsRootHandler
 			$this->setFormLimit($this->module_config['image_form_limit']);
 		}
 		
-		$this->handler['session'] =& XsnsSessionHandler::getInstance();
+		$this->handler['session'] = XsnsSessionHandler::getInstance();
 	}
 	
 	//--------------------------------------------------------------------------
@@ -101,7 +101,7 @@ class XsnsImageHandler extends XsnsRootHandler
 		
 		$criteria = new CriteriaCompo(new Criteria('target', $target));
 		$criteria->add(new Criteria('target_id', $target_id));
-		if(!($obj_list =& $this->getObjects($criteria))){
+		if(!($obj_list = $this->getObjects($criteria))){
 			return $ret;
 		}
 		
@@ -124,7 +124,7 @@ class XsnsImageHandler extends XsnsRootHandler
 		
 		$criteria = new CriteriaCompo(new Criteria('target', $target));
 		$criteria->add(new Criteria('target_id', '('.implode(',', $target_ids).')', 'IN'));
-		if(!($obj_list =& $this->getObjects($criteria))){
+		if(!($obj_list = $this->getObjects($criteria))){
 			return $ret;
 		}
 		

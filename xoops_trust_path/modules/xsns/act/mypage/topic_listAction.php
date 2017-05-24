@@ -17,7 +17,7 @@ function dispatch()
 		$start = 0;
 	}
 	
-	$user_handler =& XsnsUserHandler::getInstance();
+	$user_handler = XsnsUserHandler::getInstance();
 	$user =& $user_handler->get($uid);
 	if(!is_object($user) || $user->getVar('level') < 1){
 		redirect_header(XOOPS_URL, 2, _NOPERM);

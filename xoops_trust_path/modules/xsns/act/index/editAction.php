@@ -22,7 +22,7 @@ function dispatch()
 	
 	// コミュニティの取得
 	$perm = XSNS_AUTH_XOOPS_ADMIN | XSNS_AUTH_ADMIN;
-	$commu_handler =& XsnsCommunityHandler::getInstance();
+	$commu_handler = XsnsCommunityHandler::getInstance();
 	$community =& $commu_handler->get($cid);
 	if(!is_object($community) || !$community->checkAuthority($perm)){
 		redirect_header(XOOPS_URL, 2, _NOPERM);
@@ -36,7 +36,7 @@ function dispatch()
 		'image' => $community->getImage(XSNS_IMAGE_SIZE_S),
 	);
 	
-	$category_handler =& XsnsCategoryHandler::getInstance();
+	$category_handler = XsnsCategoryHandler::getInstance();
 	$category_selector = $category_handler->getSelectorHtml('category', $community->getVar('c_commu_category_id'));
 	
 	$this->context->setAttribute('commu', $commu_data);

@@ -24,8 +24,8 @@ if( ! function_exists( 'xsns_new_base' ) ) {
 
 		$mytrustdirpath = dirname(dirname( __FILE__ )) ;
 
-		$db =& Database::getInstance();
-		(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
+		$db = Database::getInstance();
+		(method_exists('MyTextSanitizer', 'sGetInstance') and $myts = MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance();
 
 		$block = array();
 		$perm_arr = array();

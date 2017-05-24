@@ -63,7 +63,7 @@ class XsnsConfirmHandler extends XsnsRootHandler
 		$criteria->add(new Criteria('uid_to', $uid_to));
 		$criteria->add(new Criteria('mode', $mode));
 		
-		$confirm =& $this->getObjects($criteria);
+		$confirm = $this->getObjects($criteria);
 		if(is_array($confirm) && isset($confirm[0]) && is_object($confirm[0])){
 			$ret =& $confirm[0];
 		}

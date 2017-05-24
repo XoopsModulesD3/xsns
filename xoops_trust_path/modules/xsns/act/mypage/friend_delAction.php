@@ -16,7 +16,7 @@ function dispatch()
 		redirect_header(XOOPS_URL, 2, _NOPERM);
 	}
 	
-	$user_handler =& XsnsUserHandler::getInstance();
+	$user_handler = XsnsUserHandler::getInstance();
 	$friend =& $user_handler->get($uid);
 	$user =& $user_handler->get($xoopsUser->getVar('uid'));
 	

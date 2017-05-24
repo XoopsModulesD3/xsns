@@ -7,7 +7,7 @@ class XsnsAction
 	
 	function XsnsAction(&$context)
 	{
-		$this->db =& Database::getInstance();
+		$this->db = Database::getInstance();
 		$this->context =& $context;
 	}
 	

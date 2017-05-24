@@ -12,7 +12,7 @@ function dispatch()
 		redirect_header(XSNS_URL_ADMIN.'?'.XSNS_ACTION_ARG.'=file', 2, _AM_XSNS_FILE_SELECT_NG);
 	}
 	
-	$file_handler =& XsnsFileHandler::getInstance();
+	$file_handler = XsnsFileHandler::getInstance();
 	
 	foreach($del_id as $id){
 		$file =& $file_handler->get($id);

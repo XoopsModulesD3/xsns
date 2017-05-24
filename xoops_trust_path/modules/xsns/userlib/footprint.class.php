@@ -59,7 +59,7 @@ class XsnsFootprintHandler extends XsnsRootHandler
 		$criteria = new CriteriaCompo(new Criteria('uid_to', $uid_to));
 		$criteria->add(new Criteria('uid_from', $uid_from));
 		$criteria->add(new Criteria('r_datetime', date('Y-m-d H:i:s', time()-$wait), '>'));
-		$obj_list =& $this->getObjects($criteria);
+		$obj_list = $this->getObjects($criteria);
 		if(is_array($obj_list) && count($obj_list)>0){
 			return false;
 		}

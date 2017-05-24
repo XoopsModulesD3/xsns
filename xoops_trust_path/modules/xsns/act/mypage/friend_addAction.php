@@ -17,7 +17,7 @@ function dispatch()
 		redirect_header(XOOPS_URL, 2, _NOPERM);
 	}
 	
-	$user_handler =& XsnsUserHandler::getInstance();
+	$user_handler = XsnsUserHandler::getInstance();
 	$own_user =& $user_handler->get($own_uid);
 	$target_user =& $user_handler->get($uid);
 	if(!is_object($own_user) || !is_object($target_user) || $own_user->isFriend($uid)){

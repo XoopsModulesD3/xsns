@@ -46,7 +46,7 @@ class XsnsTopic extends XsnsRoot
 		$criteria = new CriteriaCompo(new Criteria('c_commu_topic_id', $this->getVar('c_commu_topic_id')));
 		$criteria->add($num_criteria2);
 		
-		$obj_list =& $this->handler['comment']->getObjects($criteria, true);
+		$obj_list = $this->handler['comment']->getObjects($criteria, true);
 		$ret = array();
 		foreach($obj_list as $key => $obj){
 			if(!is_object($obj)){
@@ -140,9 +140,9 @@ class XsnsTopicHandler extends XsnsRootHandler
 	
 	function &getListForCommunity($cid, $limit=0, $start=0, $get_body=false)
 	{
-		$ts =& XsnsTextSanitizer::sGetInstance();
-		$image_handler =& XsnsImageHandler::getInstance();
-		$file_handler =& XsnsFileHandler::getInstance();
+		$ts = XsnsTextSanitizer::sGetInstance();
+		$image_handler = XsnsImageHandler::getInstance();
+		$file_handler = XsnsFileHandler::getInstance();
 		
 		$ret = array();
 		$base_url = XSNS_URL_TOPIC.'&tid=';
@@ -164,7 +164,7 @@ class XsnsTopicHandler extends XsnsRootHandler
 			return $ret;
 		}
 		if($get_body){
-			$comment_handler =& XsnsTopicCommentHandler::getInstance();
+			$comment_handler = XsnsTopicCommentHandler::getInstance();
 			
 			while($row = $this->db->fetchArray($rs)){
 				$comment =& $comment_handler->getByNumber($row['tid'], 0);

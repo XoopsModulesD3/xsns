@@ -12,9 +12,9 @@ function dispatch()
 	
 	$own_uid = $xoopsUser->getVar('uid');
 	
-	$confirm_handler =& XsnsConfirmHandler::getInstance();
-	$user_handler =& XsnsUserHandler::getInstance();
-	$commu_handler =& XsnsCommunityHandler::getInstance();
+	$confirm_handler = XsnsConfirmHandler::getInstance();
+	$user_handler = XsnsUserHandler::getInstance();
+	$commu_handler = XsnsCommunityHandler::getInstance();
 	
 	$own_user =& $user_handler->get($own_uid);
 	if(!is_object($own_user)){
@@ -25,7 +25,7 @@ function dispatch()
 	$criteria->setSort('r_datetime');
 	$criteria->setOrder('DESC');
 	
-	$confirm_obj_list =& $confirm_handler->getObjects($criteria);
+	$confirm_obj_list = $confirm_handler->getObjects($criteria);
 	
 	$confirm_list_all = array();
 	

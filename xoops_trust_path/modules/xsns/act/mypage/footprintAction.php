@@ -12,13 +12,13 @@ function dispatch()
 	$limit = 30;
 	
 	$own_uid = $xoopsUser->getVar('uid');
-	$user_handler =& XsnsUserHandler::getInstance();
+	$user_handler = XsnsUserHandler::getInstance();
 	$own_user =& $user_handler->get($own_uid);
 	if(!is_object($own_user)){
 		redirect_header(XOOPS_URL, 2, _NOPERM);
 	}
 	
-	$footprint_handler =& XsnsFootprintHandler::getInstance();
+	$footprint_handler = XsnsFootprintHandler::getInstance();
 	$footprint_list_temp =& $footprint_handler->getListForUser($own_uid, $limit);
 	$footprint_count = $footprint_handler->getCountForUser($own_uid);
 	
@@ -30,7 +30,7 @@ function dispatch()
 		$user_ids = array_unique($user_ids);
 		
 		$criteria = new Criteria('uid', '('.implode(',',$user_ids).')', 'IN');
-		$user_obj_list =& $user_handler->getObjects($criteria, true);
+		$user_obj_list = $user_handler->getObjects($criteria, true);
 	}
 	else{
 		$user_obj_list = array();

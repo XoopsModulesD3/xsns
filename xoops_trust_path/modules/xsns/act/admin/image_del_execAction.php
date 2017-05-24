@@ -12,7 +12,7 @@ function dispatch()
 		redirect_header(XSNS_URL_ADMIN.'?'.XSNS_ACTION_ARG.'=image', 2, _AM_XSNS_IMAGE_SELECT_NG);
 	}
 	
-	$image_handler =& XsnsImageHandler::getInstance();
+	$image_handler = XsnsImageHandler::getInstance();
 	
 	foreach($del_id as $id){
 		$image =& $image_handler->get($id);

@@ -13,11 +13,11 @@ function dispatch()
 	
 	$tcid = $this->getIntRequest('tcid');
 	
-	$commu_handler =& XsnsCommunityHandler::getInstance();
-	$topic_handler =& XsnsTopicHandler::getInstance();
-	$comment_handler =& XsnsTopicCommentHandler::getInstance();
-	$image_handler =& XsnsImageHandler::getInstance();
-	$file_handler =& XsnsFileHandler::getInstance();
+	$commu_handler = XsnsCommunityHandler::getInstance();
+	$topic_handler = XsnsTopicHandler::getInstance();
+	$comment_handler = XsnsTopicCommentHandler::getInstance();
+	$image_handler = XsnsImageHandler::getInstance();
+	$file_handler = XsnsFileHandler::getInstance();
 	
 	// コメントの取得
 	$comment =& $comment_handler->get($tcid);

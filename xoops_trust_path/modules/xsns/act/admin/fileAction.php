@@ -23,13 +23,13 @@ function dispatch()
 	$criteria->setSort('c_file_id');
 	$criteria->setOrder('DESC');
 	
-	$file_handler =& XsnsFileHandler::getInstance();
-	$file_obj_list =& $file_handler->getObjects($criteria);
+	$file_handler = XsnsFileHandler::getInstance();
+	$file_obj_list = $file_handler->getObjects($criteria);
 	$file_list = array();
 	
 	$user_handler =& xoops_gethandler('user');
 	
-	$comment_handler =& XsnsTopicCommentHandler::getInstance();
+	$comment_handler = XsnsTopicCommentHandler::getInstance();
 	$comment = array();
 	
 	foreach($file_obj_list as $file_obj){

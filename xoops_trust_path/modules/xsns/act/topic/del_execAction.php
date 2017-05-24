@@ -15,9 +15,9 @@ function dispatch()
 		redirect_header(XOOPS_URL, 2, _NOPERM);
 	}
 	
-	$commu_handler =& XsnsCommunityHandler::getInstance();
-	$topic_handler =& XsnsTopicHandler::getInstance();
-	$comment_handler =& XsnsTopicCommentHandler::getInstance();
+	$commu_handler = XsnsCommunityHandler::getInstance();
+	$topic_handler = XsnsTopicHandler::getInstance();
+	$comment_handler = XsnsTopicCommentHandler::getInstance();
 	
 	// コメントの取得
 	$comment =& $comment_handler->get($tcid);
@@ -59,9 +59,9 @@ function dispatch()
 			// コメントに添付された画像・ファイルを削除
 			$criteria = new CriteriaCompo(new Criteria('target', 2));
 			$criteria->add(new Criteria('target_id', $tcid));
-			$image_handler =& XsnsImageHandler::getInstance();
+			$image_handler = XsnsImageHandler::getInstance();
 			$image_handler->deleteObjects($criteria);
-			$file_handler =& XsnsFileHandler::getInstance();
+			$file_handler = XsnsFileHandler::getInstance();
 			$file_handler->deleteObjects($criteria);
 			
 			redirect_header(XSNS_URL_TOPIC.'&tid='.$tid, 2, _MD_XSNS_TOPIC_DEL_RES_OK);

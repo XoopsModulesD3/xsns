@@ -18,7 +18,7 @@ function dispatch()
 	$url = XSNS_URL_COMMU;
 	
 	if($image_id > 0){
-		$image_handler =& XsnsImageHandler::getInstance();
+		$image_handler = XsnsImageHandler::getInstance();
 		$image =& $image_handler->get($image_id);
 		
 		if(is_object($image) && $image_handler->delete($image)){
@@ -30,7 +30,7 @@ function dispatch()
 		}
 	}
 	elseif($file_id > 0){
-		$file_handler =& XsnsFileHandler::getInstance();
+		$file_handler = XsnsFileHandler::getInstance();
 		$file =& $file_handler->get($file_id);
 		
 		if(is_object($file) && $file_handler->delete($file)){
@@ -61,7 +61,7 @@ function getRedirectURL($target, $target_id)
 	}
 	elseif($target == 2){
 		// for topic
-		$comment_handler =& XsnsTopicCommentHandler::getInstance();
+		$comment_handler = XsnsTopicCommentHandler::getInstance();
 		$comment =& $comment_handler->get($target_id);
 		if(is_object($comment)){
 			return XSNS_URL_TOPIC.'&'.XSNS_ACTION_ARG.'=edit&tcid='.$target_id;

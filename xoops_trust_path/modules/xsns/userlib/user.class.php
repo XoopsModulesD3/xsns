@@ -16,7 +16,7 @@ class XsnsUser extends XoopsUser
 	{
 		$this->XoopsUser();
 		
-		$this->ts =& XsnsTextSanitizer::sGetInstance();
+		$this->ts = XsnsTextSanitizer::sGetInstance();
 		
 		$this->handler = array(
 			'community' => XsnsCommunityHandler::getInstance(),
@@ -250,7 +250,7 @@ class XsnsUser extends XoopsUser
 			$criteria->setSort('RAND()');
 		}
 		
-		$friend_obj_list =& $this->handler['friend']->getObjects($criteria);
+		$friend_obj_list = $this->handler['friend']->getObjects($criteria);
 		if(is_array($friend_obj_list)){
 			foreach($friend_obj_list as $friend_obj){
 				$friend =& $this->handler['user']->get($friend_obj->getVar('uid_to'));
@@ -282,7 +282,7 @@ class XsnsUser extends XoopsUser
 	
 	function &getMyBlogList($limit, $start, &$blog_count)
 	{
-		$blog_module_mgr =& XsnsBlogModuleManager::getInstance();
+		$blog_module_mgr = XsnsBlogModuleManager::getInstance();
 		return $blog_module_mgr->getMyBlogList($this->getVar('uid'), $limit, $start, $blog_count);
 	}
 	
@@ -290,7 +290,7 @@ class XsnsUser extends XoopsUser
 	
 	function &getFriendBlogList($limit, $start, &$blog_count)
 	{
-		$blog_module_mgr =& XsnsBlogModuleManager::getInstance();
+		$blog_module_mgr = XsnsBlogModuleManager::getInstance();
 		return $blog_module_mgr->getFriendBlogList($this->getVar('uid'), $limit, $start, $blog_count);
 	}
 	
@@ -339,7 +339,7 @@ class XsnsUser extends XoopsUser
 			$criteria->setSort('r_datetime');
 			$criteria->setOrder('DESC');
 		}
-		$intro_obj_list =& $this->handler['intro']->getObjects($criteria);
+		$intro_obj_list = $this->handler['intro']->getObjects($criteria);
 		
 		foreach($intro_obj_list as $intro_obj){
 			if(!is_object($intro_obj)){
@@ -363,7 +363,7 @@ class XsnsUser extends XoopsUser
 	function getIntroCount()
 	{
 		$criteria = new Criteria('uid_to', $this->getVar('uid'));
-		$intro_obj_list =& $this->handler['intro']->getObjects($criteria);
+		$intro_obj_list = $this->handler['intro']->getObjects($criteria);
 		return count($intro_obj_list);
 	}
 	
@@ -386,7 +386,7 @@ class XsnsUser extends XoopsUser
 			$is_friend_page = is_object($own_user) ? $own_user->isFriend($uid) : false;
 		}
 		
-		$blog_module_mgr =& XsnsBlogModuleManager::getInstance();
+		$blog_module_mgr = XsnsBlogModuleManager::getInstance();
 		
 		$ret = array();
 		
@@ -449,7 +449,7 @@ class XsnsUserHandler extends XoopsUserHandler
 	
 	function XsnsUserHandler()
 	{
-		$this->db =& Database::getInstance();
+		$this->db = Database::getInstance();
 	}
 	
 	//--------------------------------------------------------------------------

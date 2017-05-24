@@ -10,10 +10,10 @@ function dispatch()
 	}
 	$own_uid = $xoopsUser->getVar('uid');
 	
-	$sess_handler =& XsnsSessionHandler::getInstance();
+	$sess_handler = XsnsSessionHandler::getInstance();
 	$commu = $sess_handler->getVar('community');
 	
-	$commu_handler =& XsnsCommunityHandler::getInstance();
+	$commu_handler = XsnsCommunityHandler::getInstance();
 	if(!$commu_handler->checkParams(0, $commu['name'], $commu['info'], $commu['cat_id'], $commu['public_id'])){
 		redirect_header(XOOPS_URL, 2, _NOPERM);
 	}
@@ -30,17 +30,17 @@ function dispatch()
 		'public_flag' => $commu['public_id'],
 	));
 	
-	$category_handler =& XsnsCategoryHandler::getInstance();
+	$category_handler = XsnsCategoryHandler::getInstance();
 	
 	if(($cid = $commu_handler->insert($new_community)) && $category_handler->updateSelector()){
 		
 		// 作成したコミュニティに対して画像を追加
-		$image_handler =& XsnsImageHandler::getInstance();
+		$image_handler = XsnsImageHandler::getInstance();
 		$image_handler->setFormLimit(1);
 		$image_handler->uploadImage('c', 1, $cid);
 		
 		// コミュニティの作成者をメンバーに追加
-		$c_member_handler =& XsnsMemberHandler::getInstance();
+		$c_member_handler = XsnsMemberHandler::getInstance();
 		$new_member =& $c_member_handler->create();
 		$new_member->setVars(array(
 			'uid' => $own_uid,

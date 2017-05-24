@@ -17,7 +17,7 @@ function dispatch()
 		redirect_header(XOOPS_URL, 2, _NOPERM);
 	}
 	
-	$user_handler =& XsnsUserHandler::getInstance();
+	$user_handler = XsnsUserHandler::getInstance();
 	$user =& $user_handler->get($own_uid);
 	$friend =& $user_handler->get($uid);
 	$friend_name = is_object($friend) ? $friend->getVar('uname') : "";
@@ -25,7 +25,7 @@ function dispatch()
 	if(is_object($user) && is_object($friend) && $user->unsetFriend($uid)){
 		
 		// ºï½ü¤·¤¿»Ý¤òÁ÷¿®
-		$confirm_handler =& XsnsConfirmHandler::getInstance();
+		$confirm_handler = XsnsConfirmHandler::getInstance();
 		$new_confirm =& $confirm_handler->create();
 		$new_confirm->setVars(array(
 			'uid_from' => $own_uid,
@@ -36,7 +36,7 @@ function dispatch()
 		$confirm_handler->insert($new_confirm);
 		
 		// ¸ß¤¤¤Î¾Ò²ðÊ¸¤òºï½ü
-		$intro_handler =& XsnsIntroductionHandler::getInstance();
+		$intro_handler = XsnsIntroductionHandler::getInstance();
 		$criteria1 = new CriteriaCompo(new Criteria('uid_to', $own_uid));
 		$criteria1->add(new Criteria('uid_from', $uid));
 		$criteria2 = new CriteriaCompo(new Criteria('uid_to', $uid));

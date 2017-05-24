@@ -6,7 +6,7 @@ function dispatch()
 {
 	$limit = 10;
 	
-	$sess_handler =& XsnsSessionHandler::getInstance();
+	$sess_handler = XsnsSessionHandler::getInstance();
 	$sess_handler->clearVars();
 	
 	$cid = $this->getIntRequest('cid', XSNS_REQUEST_GET);
@@ -27,7 +27,7 @@ function dispatch()
 	$keyword = $this->getTextRequest('keyword', XSNS_REQUEST_GET);
 	$sort_method = $this->getTextRequest('sort', XSNS_REQUEST_GET);
 	
-	$commu_handler =& XsnsCommunityHandler::getInstance();
+	$commu_handler = XsnsCommunityHandler::getInstance();
 	
 	$criteria = new CriteriaCompo();
 	$criteria->setLimit($limit);
@@ -79,8 +79,8 @@ function dispatch()
 		$base_url .= '&sort='.$sort_method;
 	}
 	
-	$category_handler =& XsnsCategoryHandler::getInstance();
-	$category_parent_handler =& XsnsCategoryParentHandler::getInstance();
+	$category_handler = XsnsCategoryHandler::getInstance();
+	$category_parent_handler = XsnsCategoryParentHandler::getInstance();
 	$category_selector = $category_handler->getSelectorHtml('cat_id', 0, _MD_XSNS_INDEX_CATEGORY_NO);
 	$category_list =& $category_parent_handler->getList();
 	
@@ -115,12 +115,12 @@ function getCommunityDetail($cid)
 {
 	global $xoopsUser;
 	$topic_limit = 10;
-	$commu_handler =& XsnsCommunityHandler::getInstance();
-	$c_member_handler =& XsnsMemberHandler::getInstance();
-	$user_handler =& XsnsUserHandler::getInstance();
-	$image_handler =& XsnsImageHandler::getInstance();
-	$topic_handler =& XsnsTopicHandler::getInstance();
-	$comment_handler =& XsnsTopicCommentHandler::getInstance();
+	$commu_handler = XsnsCommunityHandler::getInstance();
+	$c_member_handler = XsnsMemberHandler::getInstance();
+	$user_handler = XsnsUserHandler::getInstance();
+	$image_handler = XsnsImageHandler::getInstance();
+	$topic_handler = XsnsTopicHandler::getInstance();
+	$comment_handler = XsnsTopicCommentHandler::getInstance();
 	
 	// コミュニティの取得
 	$community =& $commu_handler->get($cid);

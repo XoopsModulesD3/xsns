@@ -18,7 +18,7 @@ function dispatch()
 		redirect_header(XSNS_URL_MYPAGE, 2, _MD_XSNS_CONFIG_CHANGE_NG);
 	}
 	
-	$module_config_handler =& XsnsModuleConfigHandler::getInstance();
+	$module_config_handler = XsnsModuleConfigHandler::getInstance();
 	$module_config =& $module_config_handler->getOne($own_uid);
 	if(!is_object($module_config)){
 		$module_config =& $module_config_handler->create();

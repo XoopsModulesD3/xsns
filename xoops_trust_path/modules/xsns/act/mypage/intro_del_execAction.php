@@ -20,7 +20,7 @@ function dispatch()
 		redirect_header(XOOPS_URL, 2, _NOPERM);
 	}
 	
-	$user_handler =& XsnsUserHandler::getInstance();
+	$user_handler = XsnsUserHandler::getInstance();
 	$user_to =& $user_handler->get($uid_to);
 	$user_from =& $user_handler->get($uid_from);
 	if(!is_object($user_to) || !is_object($user_from)){
@@ -29,8 +29,8 @@ function dispatch()
 	
 	$criteria = new CriteriaCompo(new Criteria('uid_to', $uid_to));
 	$criteria->add(new Criteria('uid_from', $uid_from));
-	$intro_handler =& XsnsIntroductionHandler::getInstance();
-	$intro_obj_list =& $intro_handler->getObjects($criteria);
+	$intro_handler = XsnsIntroductionHandler::getInstance();
+	$intro_obj_list = $intro_handler->getObjects($criteria);
 	if(!is_array($intro_obj_list) || count($intro_obj_list)!=1){
 		redirect_header(XOOPS_URL, 2, _NOPERM);
 	}

@@ -101,10 +101,10 @@ function xsns_xoops_smilies($textarea_id)
 		return;
 	}
 
-	$ts =& XsnsTextSanitizer::sGetInstance();
+	$ts = XsnsTextSanitizer::sGetInstance();
 	$smiles = $ts->getSmileys();
 	if (empty($smiles)) {
-		$db =& Database::getInstance();
+		$db = Database::getInstance();
 		if ($result = $db->query('SELECT * FROM '.$db->prefix('smiles').' WHERE display=1')) {
 			while ($smile = $db->fetchArray($result)) {
 			//hack smilies move for the smilies !!

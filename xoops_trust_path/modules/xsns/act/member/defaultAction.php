@@ -15,7 +15,7 @@ function dispatch()
 	}
 	
 	// コミュニティの取得
-	$commu_handler =& XsnsCommunityHandler::getInstance();
+	$commu_handler = XsnsCommunityHandler::getInstance();
 	$community =& $commu_handler->get($cid);
 	if(!is_object($community)){
 		redirect_header(XOOPS_URL, 2, _NOPERM);

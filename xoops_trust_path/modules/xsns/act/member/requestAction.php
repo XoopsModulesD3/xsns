@@ -20,14 +20,14 @@ function dispatch()
 	
 	// コミュニティの取得
 	$perm = XSNS_AUTH_XOOPS_ADMIN | XSNS_AUTH_ADMIN;
-	$commu_handler =& XsnsCommunityHandler::getInstance();
+	$commu_handler = XsnsCommunityHandler::getInstance();
 	$community =& $commu_handler->get($cid);
 	if(!is_object($community) || !$community->checkAuthority($perm)){
 		redirect_header(XOOPS_URL, 2, _NOPERM);
 	}
 	
 	// 対象コミュニティメンバーの取得
-	$c_member_handler =& XsnsMemberHandler::getInstance();
+	$c_member_handler = XsnsMemberHandler::getInstance();
 	$c_member =& $c_member_handler->getOne($cid, $uid);
 	if(!is_object($c_member)){
 		redirect_header(XOOPS_URL, 2, _NOPERM);

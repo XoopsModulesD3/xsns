@@ -53,7 +53,7 @@ class XsnsCategoryParentHandler extends XsnsRootHandler
 		$ret = array();
 		$criteria = new CriteriaCompo(NULL);
 		$criteria->setSort('sort_order');
-		$obj_list =& $this->getObjects($criteria);
+		$obj_list = $this->getObjects($criteria);
 		if(is_array($obj_list)){
 			foreach($obj_list as $obj){
 				if(!is_object($obj)){

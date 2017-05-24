@@ -4,8 +4,8 @@ class Xsns_Category_del_exec_Action extends Xsns_Admin_Action
 
 function dispatch()
 {
-	$cat_handler =& XsnsCategoryHandler::getInstance();
-	$cat_parent_handler =& XsnsCategoryParentHandler::getInstance();
+	$cat_handler = XsnsCategoryHandler::getInstance();
+	$cat_parent_handler = XsnsCategoryParentHandler::getInstance();
 	
 	$msg_ok = _AM_XSNS_CATEGORY_DEL_OK;
 	$msg_ng = _AM_XSNS_CATEGORY_DEL_NG;
@@ -32,7 +32,7 @@ function dispatch()
 		
 		// 中カテゴリの削除
 		$criteria = new Criteria('c_commu_category_parent_id', $id);
-		$cat_obj_list =& $cat_handler->getObjects($criteria);
+		$cat_obj_list = $cat_handler->getObjects($criteria);
 		foreach($cat_obj_list as $cat_obj){
 			// 小カテゴリの削除
 			$cat_handler->delete($cat_obj);

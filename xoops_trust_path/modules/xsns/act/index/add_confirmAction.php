@@ -20,7 +20,7 @@ function dispatch()
 	$info = $this->getTextRequest('info');
 	
 	$errors = array();
-	$commu_handler =& XsnsCommunityHandler::getInstance();
+	$commu_handler = XsnsCommunityHandler::getInstance();
 	if(!$commu_handler->checkParams(0, $name, $info, $cat_id, $public_id)){
 		$errors = $commu_handler->getErrors();
 	}
@@ -35,7 +35,7 @@ function dispatch()
 		'info' => $info,
 	));
 	
-	$sess_handler =& XsnsSessionHandler::getInstance();
+	$sess_handler = XsnsSessionHandler::getInstance();
 	$commu_vars_temp = array(
 		'name' => $name,
 		'cat_id' => $cat_id,
@@ -44,7 +44,7 @@ function dispatch()
 	);
 	$sess_handler->setVar('community', $commu_vars_temp);
 	
-	$category_handler =& XsnsCategoryHandler::getInstance();
+	$category_handler = XsnsCategoryHandler::getInstance();
 	
 	// check input : NG
 	if(count($errors) > 0){
@@ -61,7 +61,7 @@ function dispatch()
 	}
 	
 	// check input : OK
-	$image_handler =& XsnsImageHandler::getInstance();
+	$image_handler = XsnsImageHandler::getInstance();
 	$image_handler->setFormLimit(1);
 	
 	$public_desc = array(

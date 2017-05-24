@@ -18,7 +18,7 @@ function dispatch()
 	
 	// コミュニティの取得
 	$perm = XSNS_AUTH_MEMBER | XSNS_AUTH_SUB_ADMIN;
-	$commu_handler =& XsnsCommunityHandler::getInstance();
+	$commu_handler = XsnsCommunityHandler::getInstance();
 	$community =& $commu_handler->get($cid);
 	if(!is_object($community) || !$community->checkAuthority($perm)
 	   || $community->getVar('uid_admin') == $own_uid){
@@ -26,7 +26,7 @@ function dispatch()
 	}
 	
 	// 対象コミュニティメンバーの取得
-	$c_member_handler =& XsnsMemberHandler::getInstance();
+	$c_member_handler = XsnsMemberHandler::getInstance();
 	$c_member =& $c_member_handler->getOne($cid, $own_uid);
 	if(!is_object($c_member)){
 		redirect_header(XOOPS_URL, 2, _NOPERM);

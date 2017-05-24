@@ -4,8 +4,8 @@ class Xsns_Category_edit_exec_Action extends Xsns_Admin_Action
 
 function dispatch()
 {
-	$cat_handler =& XsnsCategoryHandler::getInstance();
-	$cat_parent_handler =& XsnsCategoryParentHandler::getInstance();
+	$cat_handler = XsnsCategoryHandler::getInstance();
+	$cat_parent_handler = XsnsCategoryParentHandler::getInstance();
 	
 	if($this->getTextRequest('delete')){
 		$action = 'delete';
@@ -47,7 +47,7 @@ function dispatch()
 		else{
 			// 中カテゴリの削除
 			$criteria = new Criteria('c_commu_category_parent_id', $id);
-			$cat_obj_list =& $cat_handler->getObjects($criteria);
+			$cat_obj_list = $cat_handler->getObjects($criteria);
 			foreach($cat_obj_list as $cat_obj){
 				$cat_handler->delete($cat_obj);
 			}

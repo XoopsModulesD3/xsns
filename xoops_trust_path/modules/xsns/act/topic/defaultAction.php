@@ -16,11 +16,11 @@ function dispatch()
 	}
 	$start = $this->getIntRequest('s', XSNS_REQUEST_GET);
 	
-	$commu_handler =& XsnsCommunityHandler::getInstance();
-	$topic_handler =& XsnsTopicHandler::getInstance();
-	$user_handler =& XsnsUserHandler::getInstance();
-	$image_handler =& XsnsImageHandler::getInstance();
-	$file_handler =& XsnsFileHandler::getInstance();
+	$commu_handler = XsnsCommunityHandler::getInstance();
+	$topic_handler = XsnsTopicHandler::getInstance();
+	$user_handler = XsnsUserHandler::getInstance();
+	$image_handler = XsnsImageHandler::getInstance();
+	$file_handler = XsnsFileHandler::getInstance();
 	
 	// トピックの取得
 	$topic =& $topic_handler->get($tid);
@@ -66,10 +66,10 @@ function dispatch()
 		$comment_list_temp = $main_comment;
 	}
 	
-	$sess_handler =& XsnsSessionHandler::getInstance();
+	$sess_handler = XsnsSessionHandler::getInstance();
 	$comment_temp = $sess_handler->getVar('comment_body');
 	$sess_handler->clearVars();
-	$ts =& XsnsTextSanitizer::sGetInstance();
+	$ts = XsnsTextSanitizer::sGetInstance();
 	
 	$default = array(
 		'comment' => !empty($comment_temp) ? $ts->makeTboxData4PreviewInForm($comment_temp) : '',
@@ -185,7 +185,7 @@ function dispatch()
 
 function getResIds($tid, $comment_id, $comment_body)
 {
-	$comment_handler =& XsnsTopicCommentHandler::getInstance();
+	$comment_handler = XsnsTopicCommentHandler::getInstance();
 	
 	if(!preg_match_all("/\[res\]([1-9]\\d*)\[\/res\]/", $comment_body, $matches)){
 		return false;
@@ -225,7 +225,7 @@ function getResIds($tid, $comment_id, $comment_body)
 function &getResPopupList($limit, $res_ids, $res_list)
 {
 	$ret = array();
-	$user_handler =& XsnsUserHandler::getInstance();
+	$user_handler = XsnsUserHandler::getInstance();
 	
 	foreach($res_ids as $id){
 		if(!isset($res_list[$id]) || $res_list[$id]['uid'] < 1){
@@ -267,7 +267,7 @@ function &getResPopupList($limit, $res_ids, $res_list)
 
 function &getResList($tid, $res_ids)
 {
-	$comment_handler =& XsnsTopicCommentHandler::getInstance();
+	$comment_handler = XsnsTopicCommentHandler::getInstance();
 	return $comment_handler->getListByNumbers($tid, $res_ids);
 }
 //------------------------------------------------------------------------------

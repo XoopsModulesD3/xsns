@@ -21,7 +21,7 @@ function dispatch()
 	
 	// コミュニティの取得
 	$perm = XSNS_AUTH_XOOPS_ADMIN | XSNS_AUTH_ADMIN;
-	$commu_handler =& XsnsCommunityHandler::getInstance();
+	$commu_handler = XsnsCommunityHandler::getInstance();
 	$community =& $commu_handler->get($cid);
 	if(!is_object($community) || !$community->checkAuthority($perm)){
 		redirect_header(XOOPS_URL, 2, _NOPERM);
@@ -32,7 +32,7 @@ function dispatch()
 	}
 	
 	// 対象コミュニティメンバーの取得
-	$c_member_handler =& XsnsMemberHandler::getInstance();
+	$c_member_handler = XsnsMemberHandler::getInstance();
 	$c_member =& $c_member_handler->getOne($cid, $uid);
 	if(!is_object($c_member)){
 		redirect_header(XOOPS_URL, 2, _NOPERM);
@@ -40,7 +40,7 @@ function dispatch()
 	$c_member_info =& $c_member->getInfo();
 	
 	// 既存の依頼を削除（重複を防ぐため）
-	$confirm_handler =& XsnsConfirmHandler::getInstance();
+	$confirm_handler = XsnsConfirmHandler::getInstance();
 	$criteria = new CriteriaCompo(new Criteria('c_commu_id', $cid));
 	$criteria->add(new Criteria('uid_from', $own_uid));
 	$criteria->add(new Criteria('uid_to', $uid));

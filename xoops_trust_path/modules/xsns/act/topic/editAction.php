@@ -23,9 +23,9 @@ function dispatch()
 	$token_tag = '<input type="hidden" name="'.$token->_name.'" value="'.$token->_value.'">';
 	$this->context->setAttribute('token_tag', $token_tag);
 	
-	$commu_handler =& XsnsCommunityHandler::getInstance();
-	$topic_handler =& XsnsTopicHandler::getInstance();
-	$comment_handler =& XsnsTopicCommentHandler::getInstance();
+	$commu_handler = XsnsCommunityHandler::getInstance();
+	$topic_handler = XsnsTopicHandler::getInstance();
+	$comment_handler = XsnsTopicCommentHandler::getInstance();
 	
 	// コメントの取得
 	$comment =& $comment_handler->get($tcid);

@@ -18,7 +18,7 @@ function dispatch()
 	
 	// コミュニティの取得
 	$perm = XSNS_AUTH_MEMBER | XSNS_AUTH_SUB_ADMIN;
-	$commu_handler =& XsnsCommunityHandler::getInstance();
+	$commu_handler = XsnsCommunityHandler::getInstance();
 	$community =& $commu_handler->get($cid);
 	if(!is_object($community) || !$community->checkAuthority($perm)
 	   || $community->getVar('uid_admin') == $own_uid){

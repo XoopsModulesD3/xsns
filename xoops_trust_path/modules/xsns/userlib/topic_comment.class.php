@@ -90,7 +90,7 @@ class XsnsTopicCommentHandler extends XsnsRootHandler
 		$criteria->setSort('number');
 		$criteria->setLimit($limit);
 		$criteria->setStart($start);
-		$obj_list =& $this->getObjects($criteria);
+		$obj_list = $this->getObjects($criteria);
 		$ret = array();
 		$n = $start;
 		foreach($obj_list as $key => $obj){
@@ -122,7 +122,7 @@ class XsnsTopicCommentHandler extends XsnsRootHandler
 		$ret = NULL;
 		$criteria = new CriteriaCompo(new Criteria('c_commu_topic_id', $topic_id));
 		$criteria->add(new Criteria('number', $number));
-		$obj_list =& $this->getObjects($criteria);
+		$obj_list = $this->getObjects($criteria);
 		if(count($obj_list)==1){
 			$ret =& $obj_list[0];
 		}
@@ -139,7 +139,7 @@ class XsnsTopicCommentHandler extends XsnsRootHandler
 		}
 		$criteria = new CriteriaCompo(new Criteria('c_commu_topic_id', $topic_id));
 		$criteria->add(new Criteria('number', '('.implode(',', $numbers).')', 'IN'));
-		$obj_list =& $this->getObjects($criteria, true);
+		$obj_list = $this->getObjects($criteria, true);
 		foreach($obj_list as $obj){
 			if($number_as_key){
 				$ret[$obj->getVar('number')] = $obj->getVarsArray();

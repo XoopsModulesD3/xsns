@@ -8,7 +8,7 @@ function xsns_load_language($file)
 	$langmanpath = XOOPS_TRUST_PATH.'/libs/altsys/class/D3LanguageManager.class.php' ;
 	if(file_exists($langmanpath)){
 		require_once $langmanpath;
-		$langman =& D3LanguageManager::getInstance();
+		$langman = D3LanguageManager::getInstance();
 		if(is_object($langman)){
 			$langman->read($file, basename($mydirpath), basename($trustdirpath));
 			return true;

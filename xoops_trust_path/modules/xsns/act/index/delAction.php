@@ -14,7 +14,7 @@ function dispatch()
 	
 	// コミュニティの取得
 	$perm = XSNS_AUTH_XOOPS_ADMIN | XSNS_AUTH_ADMIN;
-	$commu_handler =& XsnsCommunityHandler::getInstance();
+	$commu_handler = XsnsCommunityHandler::getInstance();
 	$community =& $commu_handler->get($cid);
 	if(!is_object($community) || !$community->checkAuthority($perm) || $community->getTopicCount() > 0){
 		redirect_header(XOOPS_URL, 2, _NOPERM);

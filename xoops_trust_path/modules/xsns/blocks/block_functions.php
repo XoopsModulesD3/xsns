@@ -6,8 +6,8 @@ function b_xsns_recent_topic_show($options)
 	
 	require_once dirname(dirname(__FILE__)).'/include/common_functions.php';
 	
-	$db =& Database::getInstance();
-	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
+	$db = Database::getInstance();
+	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts = MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance();
 	
 	$mydirname = empty($options[0]) ? 'xsns' : $options[0];
 	$item_limit = empty($options[1]) ? 5 : intval($options[1]);
@@ -167,8 +167,8 @@ function b_xsns_information_show($options)
 	
 	require_once dirname(dirname(__FILE__)).'/include/common_functions.php';
 	
-	$db =& Database::getInstance();
-	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
+	$db = Database::getInstance();
+	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts = MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance();
 	
 	$mydirname = empty($options[0]) ? 'xsns' : $options[0];
 	

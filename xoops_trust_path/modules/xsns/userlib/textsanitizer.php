@@ -46,7 +46,7 @@ class XsnsTextSanitizer extends MyTextSanitizer
 	
 	function &getInstance()
 	{
-		$instance =& self::sGetInstance();
+		$instance = self::sGetInstance();
 		return $instance;
 	}
 	

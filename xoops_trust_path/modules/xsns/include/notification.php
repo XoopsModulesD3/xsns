@@ -58,7 +58,7 @@ function xsns_main_trigger_event( $category , $item_id , $event , $extra_tags=ar
 		}
 		$criteria->add($user_criteria);
 	}
-	$notifications =& $notification_handler->getObjects($criteria);
+	$notifications = $notification_handler->getObjects($criteria);
 	if (empty($notifications)) {
 		return;
 	}
